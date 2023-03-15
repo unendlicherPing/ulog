@@ -17,7 +17,7 @@ void ulog_log(int log_level, const char *fmt, ...) {
     time(&raw_time);
     time_info = localtime(&raw_time);
 
-    strftime(buffer, sizeof(buffer), "[%m:%d] [%H:%M]\0", time_info);
+    strftime(buffer, sizeof(buffer), "[%m/%d] [%H:%M]\0", time_info);
 
     printf("%s [%s] ", buffer, log_string[log_level]);
     va_start(argp, fmt);
