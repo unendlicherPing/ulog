@@ -20,9 +20,9 @@ void ulog_log(int log_level, const char *fmt, ...) {
     strftime(buffer, sizeof(buffer), "[%j:%m:%d] [%H:%M]", time_info);
     free(time_info);
 
-    printf("%s [%s] ", buffer, log_string[log_level]);
+    fprintf(stderr, "%s [%s] ", buffer, log_string[log_level]);
     va_start(argp, fmt);
-    vprintf(fmt, argp);
+    vfprintf(stderr, fmt, argp);
     va_end(argp);
-    printf("\n");
+    fprintf(stderr, "\n");
 }
